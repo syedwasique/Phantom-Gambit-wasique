@@ -1,0 +1,34 @@
+/* Layout.css */
+.main-layout {
+  position: relative;
+}
+
+.home-section {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.home-section .ballpit-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.home-section > *:not(.ballpit-background) {
+  position: relative;
+  z-index: 2;
+}
+
+/* Ensure other sections have proper styling */
+.about-section,
+.contact-section,
+.footer-section {
+  position: relative;
+  z-index: 3;
+  background: #0f0f1a; /* Your main background color */
+}

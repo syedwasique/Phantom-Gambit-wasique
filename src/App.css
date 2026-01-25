@@ -1,0 +1,48 @@
+.app-container {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Ballpit background - only shown on home page */
+.ballpit-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Push to background */
+  pointer-events: none; /* Allow clicks to pass through */
+}
+
+/* Reset styles for pages without ballpit */
+body {
+  margin: 0;
+  padding: 0;
+  background: #000;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ensure games page has proper styling */
+.games-page {
+  position: relative;
+  z-index: 2;
+  background: #0c0c0c;
+  min-height: 100vh;
+}
+
+/* Remove any global styles that might affect games component */
+* {
+  box-sizing: border-box;
+}
+
+/* Optional: Add a class to body when on games page to handle background */
+body.games-page-active {
+  background: #0c0c0c;
+  overflow-y: auto;
+}
