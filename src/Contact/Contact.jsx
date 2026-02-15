@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import Particles from '../Particles/Particles';
-import './Contact.css';
+import './contact.css';
 
 const Contact = () => {
   const [formData, setFormData] = useState({

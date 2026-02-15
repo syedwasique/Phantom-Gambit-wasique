@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaInstagram, FaFacebook, FaTwitter, FaDiscord, FaGamepad, FaEnvelope, FaMapMarkerAlt, FaPhone } from 'react-icons/fa';
-import './Footer.css';
+import './footer.css';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
