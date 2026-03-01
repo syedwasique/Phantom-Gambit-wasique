@@ -11,12 +11,46 @@ const Footer = () => {
     { icon: <FaLinkedin />, url: 'https://www.linkedin.com/company/phantom-gambit/posts/?feedView=all', label: 'LinkedIn' }
   ];
 
-  const quickLinks = [
-    { name: 'Home', url: '/' }, // Full page navigation
-    { name: 'Games', url: '/games' }, // Full page navigation to games page
-    { name: 'About', url: '/#about' }, // Navigate to home page with about hash
-    { name: 'Contact', url: '/#contact' } // Navigate to home page with contact hash
-  ];
+  // Function to handle Games link click
+  const handleGamesClick = (e) => {
+    e.preventDefault();
+
+    // Try multiple approaches to navigate to games page
+
+    // Approach 1: Use window.location for full page reload (works with any router)
+    window.location.href = '/games';
+
+    // Approach 2: If using React Router, you can also try:
+    // history.push('/games'); // If you have access to history
+
+    return false;
+  };
+
+  // Function to handle hash links (About and Contact)
+  const handleHashClick = (e, url) => {
+    e.preventDefault();
+
+    // Extract the hash part
+    const hash = url.split('#')[1];
+
+    // If we're not on the home page, go to home page with hash
+    if (window.location.pathname !== '/') {
+      window.location.href = url;
+    } else {
+      // If we're on home page, just scroll to the element
+      const element = document.getElementById(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
+  // Function to handle Home link click
+  const handleHomeClick = (e) => {
+    e.preventDefault();
+    window.location.href = '/';
+  };
+
   return (
     <div className="footer-wrapper">
       <footer className="footer">
@@ -52,11 +86,49 @@ const Footer = () => {
             <div className="footer-section quick-links">
               <h3 className="footer-section-title">Quick Links</h3>
               <ul className="footer-links">
-                {quickLinks.map((link, index) => (
-                  <li key={index}>
-                    <a href={link.url} className="footer-link">{link.name}</a>
-                  </li>
-                ))}
+                {/* Home Link */}
+                <li>
+                  <a
+                    href="/"
+                    className="footer-link"
+                    onClick={handleHomeClick}
+                  >
+                    Home
+                  </a>
+                </li>
+
+                {/* Games Link - Using onClick for guaranteed navigation */}
+                <li>
+                  <a
+                    href="/games"
+                    className="footer-link games-link"
+                    onClick={handleGamesClick}
+                  >
+                    Games
+                  </a>
+                </li>
+
+                {/* About Link */}
+                <li>
+                  <a
+                    href="/#about"
+                    className="footer-link"
+                    onClick={(e) => handleHashClick(e, '/#about')}
+                  >
+                    About
+                  </a>
+                </li>
+
+                {/* Contact Link */}
+                <li>
+                  <a
+                    href="/#contact"
+                    className="footer-link"
+                    onClick={(e) => handleHashClick(e, '/#contact')}
+                  >
+                    Contact
+                  </a>
+                </li>
               </ul>
             </div>
 
@@ -68,7 +140,6 @@ const Footer = () => {
                   <FaEnvelope className="contact-icon" />
                   <span>phantomgambit5@gmail.com</span>
                 </li>
-
                 <li className="contact-item">
                   <FaMapMarkerAlt className="contact-icon" />
                   <span>campus 153 Oric office Szabist University Block 5 Clifton</span>
