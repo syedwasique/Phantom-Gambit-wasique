@@ -24,7 +24,6 @@ const GameDetails = () => {
     players: "2-4",
     duration: "30-60min",
     age: "8+",
-    rating: "4.6",
     features: [
       "Strategic Movement & Block Placement",
       "Dynamic Board State Changes",
@@ -49,10 +48,10 @@ const GameDetails = () => {
 
   return (
     <div className="gd-page">
-      <Particles 
-        count={30} 
-        color="#8b5cf6" 
-        size={4} 
+      <Particles
+        count={30}
+        color="#8b5cf6"
+        size={4}
         duration={8}
         className="games-particles"
       />
@@ -76,10 +75,10 @@ const GameDetails = () => {
                 </h1>
                 <div className="gd-title-accent"></div>
               </div>
-              
+
               <p className="gd-game-subtitle">{gameData.subtitle}</p>
               <p className="gd-game-description">{gameData.description}</p>
-              
+
               <div className="gd-game-stats">
                 <div className="gd-stat">
                   <div className="gd-stat-icon">👥</div>
@@ -96,11 +95,7 @@ const GameDetails = () => {
                   <span className="gd-stat-value">{gameData.age}</span>
                   <span className="gd-stat-label">Age</span>
                 </div>
-                <div className="gd-stat">
-                  <div className="gd-stat-icon">⭐</div>
-                  <span className="gd-stat-value">{gameData.rating}</span>
-                  <span className="gd-stat-label">Rating</span>
-                </div>
+
               </div>
 
               <div className="gd-hero-actions">

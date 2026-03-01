@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaInstagram, FaFacebook, FaTwitter, FaDiscord, FaGamepad, FaEnvelope, FaMapMarkerAlt, FaPhone } from 'react-icons/fa';
+import { FaInstagram, FaFacebook, FaTwitter, FaDiscord, FaGamepad, FaEnvelope, FaMapMarkerAlt, FaPhone, FaLinkedin } from 'react-icons/fa';
 import './footer.css';
 
 const Footer = () => {
@@ -7,16 +7,16 @@ const Footer = () => {
 
   const socialLinks = [
     { icon: <FaInstagram />, url: 'https://www.instagram.com/deceptionistgame/', label: 'Instagram' },
-    { icon: <FaFacebook />, url: 'https://www.facebook.com/share/1CjGdYKNoC/', label: 'Facebook' }
+    { icon: <FaFacebook />, url: 'https://www.facebook.com/share/1CjGdYKNoC/', label: 'Facebook' },
+    { icon: <FaLinkedin />, url: 'https://www.linkedin.com/company/phantom-gambit/posts/?feedView=all', label: 'LinkedIn' }
   ];
 
   const quickLinks = [
-    { name: 'Home', url: '#home' },
-    { name: 'Games', url: '#games' },
-    { name: 'About', url: '#about' },
-    { name: 'Contact', url: '#contact' }
+    { name: 'Home', url: '/' }, // Full page navigation
+    { name: 'Games', url: '/games' }, // Full page navigation to games page
+    { name: 'About', url: '/#about' }, // Navigate to home page with about hash
+    { name: 'Contact', url: '/#contact' } // Navigate to home page with contact hash
   ];
-
   return (
     <div className="footer-wrapper">
       <footer className="footer">
@@ -68,7 +68,7 @@ const Footer = () => {
                   <FaEnvelope className="contact-icon" />
                   <span>phantomgambit5@gmail.com</span>
                 </li>
-            
+
                 <li className="contact-item">
                   <FaMapMarkerAlt className="contact-icon" />
                   <span>campus 153 Oric office Szabist University Block 5 Clifton</span>

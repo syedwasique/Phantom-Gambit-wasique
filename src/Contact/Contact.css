@@ -3,13 +3,15 @@
 
 /* Contact Page Styles */
 .contact-page {
-   min-height: calc(100vh - 80px); /* Subtract navbar height */
+  min-height: calc(100vh - 80px);
+  /* Subtract navbar height */
   background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2e 50%, #16213e 100%);
   color: #ffffff;
   font-family: 'Exo 2', sans-serif;
   position: relative;
   overflow: hidden;
-   margin-top: 80px; /* Add margin to account for fixed navbar */
+  margin-top: 80px;
+  /* Add margin to account for fixed navbar */
 }
 
 /* Animated Background */
@@ -62,17 +64,31 @@
 }
 
 @keyframes contact-floatShape {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  25% { transform: translate(100px, -50px) scale(1.2); }
-  50% { transform: translate(-50px, 100px) scale(0.8); }
-  75% { transform: translate(-100px, -50px) scale(1.1); }
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  25% {
+    transform: translate(100px, -50px) scale(1.2);
+  }
+
+  50% {
+    transform: translate(-50px, 100px) scale(0.8);
+  }
+
+  75% {
+    transform: translate(-100px, -50px) scale(1.1);
+  }
 }
 
 /* Container */
 .contact-container {
   position: relative;
   z-index: 2;
-  max-width: 1400px; /* Keep max-width but make it larger */
+  max-width: 1400px;
+  /* Keep max-width but make it larger */
   margin: 0 auto;
   padding: 2rem;
   width: 100%;
@@ -99,8 +115,17 @@
 }
 
 @keyframes contact-pulseGlow {
-  0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
-  50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.1); }
+
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
 }
 
 .contact-title {
@@ -133,10 +158,23 @@
 }
 
 @keyframes contact-textGlitch {
-  0%, 100% { transform: translateX(0); }
-  1% { transform: translateX(-2px); }
-  2% { transform: translateX(2px); }
-  3% { transform: translateX(0); }
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  1% {
+    transform: translateX(-2px);
+  }
+
+  2% {
+    transform: translateX(2px);
+  }
+
+  3% {
+    transform: translateX(0);
+  }
 }
 
 .contact-title-underline {
@@ -149,8 +187,15 @@
 }
 
 @keyframes contact-underlineScan {
-  0%, 100% { background-position: -200px 0; }
-  50% { background-position: 200px 0; }
+
+  0%,
+  100% {
+    background-position: -200px 0;
+  }
+
+  50% {
+    background-position: 200px 0;
+  }
 }
 
 .contact-subtitle {
@@ -198,12 +243,15 @@
 /* Contact Content - FIXED TO BE CENTERED AND WIDE */
 .contact-content {
   display: grid;
-  grid-template-columns: 1fr 2fr; /* Make form section even wider */
+  grid-template-columns: 1fr 2fr;
+  /* Make form section even wider */
   gap: 3rem;
   margin-bottom: 4rem;
   align-items: start;
-  max-width: 1400px; /* Add max-width to the grid */
-  margin: 0 auto; /* Center the grid */
+  max-width: 1400px;
+  /* Add max-width to the grid */
+  margin: 0 auto;
+  /* Center the grid */
 }
 
 /* Contact Info Card */
@@ -277,8 +325,15 @@
 }
 
 @keyframes contact-statusPulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
 }
 
 .contact-status-indicator span {
@@ -422,7 +477,8 @@
   align-items: center;
   min-height: 100vh;
   padding: 2rem;
-  background: #0f172a; /* Add background for better visibility */
+  background: #0f172a;
+  /* Add background for better visibility */
 }
 
 .contact-form-section {
@@ -741,9 +797,9 @@
   z-index: 1;
 }
 
-.contact-form-input:focus ~ .contact-input-glow,
-.contact-form-select:focus ~ .contact-input-glow,
-.contact-form-textarea:focus ~ .contact-input-glow {
+.contact-form-input:focus~.contact-input-glow,
+.contact-form-select:focus~.contact-input-glow,
+.contact-form-textarea:focus~.contact-input-glow {
   opacity: 0.3;
 }
 
@@ -847,13 +903,22 @@
   animation: contact-loaderBounce 1.4s ease-in-out infinite both;
 }
 
-.contact-loader-dot:nth-child(1) { animation-delay: -0.32s; }
-.contact-loader-dot:nth-child(2) { animation-delay: -0.16s; }
+.contact-loader-dot:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.contact-loader-dot:nth-child(2) {
+  animation-delay: -0.16s;
+}
 
 @keyframes contact-loaderBounce {
-  0%, 80%, 100% {
+
+  0%,
+  80%,
+  100% {
     transform: scale(0);
   }
+
   40% {
     transform: scale(1);
   }
@@ -865,9 +930,17 @@
 }
 
 @keyframes contact-successPulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 /* Quick Actions */
@@ -985,13 +1058,14 @@
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  
+
   .contact-form-row {
     grid-template-columns: 1fr;
   }
-  
+
   .contact-form-container {
-    max-width: 90%;
+    max-width: 100%;
+    border-radius: 20px;
   }
 }
 
@@ -999,35 +1073,39 @@
   .contact-section {
     padding: 1rem;
   }
-  
+
   .contact-title {
     font-size: 3rem;
   }
-  
+
   .contact-title-subtext {
     font-size: 1.5rem;
   }
-  
+
   .contact-header-stats {
     gap: 2rem;
   }
-  
+
   .contact-stat-number {
     font-size: 2rem;
   }
-  
+
   .contact-container {
     padding: 1rem;
   }
-  
+
   .contact-info-card,
-  .contact-form-container,
   .contact-quick-actions {
     padding: 2rem;
   }
-  
+
   .contact-form-container {
-    max-width: 95%;
+    padding: 2rem 1.5rem;
+    max-width: 100%;
+  }
+
+  .contact-form-header h2 {
+    font-size: 1.8rem;
   }
 }
 
@@ -1035,33 +1113,40 @@
   .contact-title {
     font-size: 2.2rem;
   }
-  
+
   .contact-title-subtext {
     font-size: 1.2rem;
   }
-  
+
   .contact-header-stats {
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
     gap: 1.5rem;
   }
-  
+
   .contact-action-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .contact-channel {
     flex-direction: column;
     text-align: center;
   }
-  
+
   .contact-channel-icon {
     align-self: center;
   }
-  
+
   .contact-form-container {
-    padding: 1.5rem;
+    padding: 1.5rem 1rem;
+    border-radius: 16px;
   }
-  
+
+  .contact-form-header h2 {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+  }
+
   .contact-quick-actions {
     padding: 1.5rem;
   }

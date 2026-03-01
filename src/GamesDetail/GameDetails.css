@@ -2,14 +2,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;800&family=Rajdhani:wght@300;400;500;600;700&family=Exo+2:wght@300;400;500;600;700&display=swap');
 
 /* Reset scrollbar and fix scrolling issues */
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
   overflow-x: hidden;
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
   position: relative;
 }
 
@@ -30,8 +33,10 @@ html, body {
   position: relative;
   overflow-y: auto;
   overflow-x: hidden;
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   /* Remove fixed height and use min-height instead */
@@ -65,7 +70,8 @@ html, body {
   padding: 0.8rem 1.5rem;
   border-radius: 12px;
   cursor: pointer;
-  z-index: 1000; /* Increased z-index */
+  z-index: 1000;
+  /* Increased z-index */
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
   display: flex;
@@ -108,7 +114,7 @@ html, body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: 
+  background:
     radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
     radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.05) 0%, transparent 50%);
 }
@@ -139,8 +145,17 @@ html, body {
 }
 
 @keyframes gentlePulse {
-  0%, 100% { transform: scale(1); opacity: 0.05; }
-  50% { transform: scale(1.1); opacity: 0.08; }
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.05;
+  }
+
+  50% {
+    transform: scale(1.1);
+    opacity: 0.08;
+  }
 }
 
 .gd-hero-content {
@@ -173,7 +188,7 @@ html, body {
   background-clip: text;
   position: relative;
   z-index: 2;
-  
+
 }
 
 .gd-title-shadow {
@@ -199,8 +214,15 @@ html, body {
 }
 
 @keyframes gentleScan {
-  0%, 100% { background-position: -120px 0; }
-  50% { background-position: 120px 0; }
+
+  0%,
+  100% {
+    background-position: -120px 0;
+  }
+
+  50% {
+    background-position: 120px 0;
+  }
 }
 
 .gd-game-subtitle {
@@ -307,8 +329,17 @@ html, body {
 }
 
 @keyframes gentleSparkle {
-  0%, 100% { opacity: 0.7; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.1); }
+
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
 }
 
 .gd-secondary-btn {
@@ -573,8 +604,13 @@ html, body {
 }
 
 @keyframes gentleRotate {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .gd-feature-icon span {
@@ -719,8 +755,15 @@ html, body {
 }
 
 @keyframes gentleShine {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 0.6; }
+
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 0.6;
+  }
 }
 
 .gd-component-icon span {
@@ -930,67 +973,77 @@ html, body {
   .gd-game-title {
     font-size: 3rem;
   }
-  
+
   .gd-game-stats {
     gap: 1.5rem;
   }
-  
+
   .gd-stat {
     min-width: 100px;
     padding: 1rem 0.5rem;
   }
-  
+
   .gd-hero-actions,
   .gd-cta-buttons {
     flex-direction: column;
     align-items: center;
   }
-  
+
   .gd-primary-btn,
   .gd-secondary-btn,
   .gd-cta-primary,
   .gd-cta-secondary {
     width: 250px;
   }
-  
+
   .gd-tabs-nav {
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+    width: 100%;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
-  
+
+  .gd-tabs-nav::-webkit-scrollbar {
+    display: none;
+  }
+
   .gd-tab {
-    width: 200px;
+    flex-shrink: 0;
+    white-space: nowrap;
   }
-  
+
   .gd-tab-content {
     padding: 2rem;
   }
-  
+
   .gd-overview-highlights {
     grid-template-columns: 1fr;
   }
-  
+
   .gd-components-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .gd-feature-item,
   .gd-rule-item {
     flex-direction: column;
     text-align: center;
     gap: 1rem;
   }
-  
+
   .gd-rule-step {
     flex-direction: row;
     gap: 1rem;
   }
-  
+
   .gd-step-line {
     width: 40px;
     height: 2px;
   }
-  
+
   .gd-footer-content {
     grid-template-columns: 1fr;
     text-align: center;
@@ -1001,26 +1054,26 @@ html, body {
   .gd-container {
     padding: 0 1rem;
   }
-  
+
   .gd-hero {
     padding: 4rem 1rem 2rem;
   }
-  
+
   .gd-game-title {
     font-size: 2.5rem;
   }
-  
+
   .gd-back-btn {
     top: 1rem;
     left: 1rem;
     padding: 0.6rem 1rem;
     font-size: 0.8rem;
   }
-  
+
   .gd-cta-content h2 {
     font-size: 2.2rem;
   }
-  
+
   .gd-footer {
     padding: 2rem 1rem;
   }

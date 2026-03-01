@@ -9,10 +9,10 @@ const Image = () => {
 
   useEffect(() => {
     setIsLoaded(true);
-    
+
     // Add image-specific background class to body
     document.body.classList.add('image-page-active');
-    
+
     // Cleanup on component unmount
     return () => {
       document.body.classList.remove('image-page-active');
@@ -26,11 +26,11 @@ const Image = () => {
         <div className="bg-pattern"></div>
         <div className="bg-overlay"></div>
       </div>
-      
-      
+
+
       {/* Main Content */}
       <div className="image-content">
-      
+
 
         {/* Image Display */}
         <div className={`image-display ${isImageLoaded ? 'loaded' : ''}`}>
@@ -39,17 +39,17 @@ const Image = () => {
             <div className="frame-border frame-border-right"></div>
             <div className="frame-border frame-border-bottom"></div>
             <div className="frame-border frame-border-left"></div>
-            
+
             <div className="image-wrapper">
-              <img 
-                src={boardImage} 
-                alt="Deceptionist Board Game" 
+              <img
+                src={boardImage}
+                alt="Deceptionist Board Game"
                 className="board-image"
                 onLoad={() => setIsImageLoaded(true)}
               />
               <div className="image-shine"></div>
             </div>
-            
+
             {/* Image Corner Accents */}
             <div className="corner-accent corner-tl">
               <div className="corner-line"></div>
@@ -72,7 +72,7 @@ const Image = () => {
 
         {/* Tagline below the image */}
         <div className="image-tagline">
-          <h2 className="tagline-text">"EXPLORE THE BATTLEFIELD"</h2>
+          <h2 className="tagline-text">"EXPLORE THE BOARD"</h2>
         </div>
       </div>
     </div>

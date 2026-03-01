@@ -65,12 +65,12 @@ const Contact = () => {
         import.meta.env.VITE_PUBLIC_KEY
       );
 
-      setSubmitStatus({ 
-        success: true, 
-        message: 'Transmission successful! We will respond within 24 hours.' 
+      setSubmitStatus({
+        success: true,
+        message: 'Transmission successful! We will respond within 24 hours.'
       });
       setFormData({ name: '', email: '', subject: '', message: '' });
-      
+
       // Add success animation
       const submitBtn = document.querySelector('.contact-submit-btn');
       if (submitBtn) {
@@ -79,19 +79,19 @@ const Contact = () => {
           submitBtn.classList.remove('contact-success');
         }, 3000);
       }
-      
+
     } catch (error) {
       console.error('Transmission failed:', error);
       let errorMessage = 'Transmission failed! Please try again.';
-      
+
       if (error.text) {
         errorMessage = `Transmission failed: ${error.text}`; // FIXED: Added backtick
       } else if (error.status === 412) {
         errorMessage = 'Template configuration error. Please check your EmailJS template variables.';
       }
-      
-      setSubmitStatus({ 
-        success: false, 
+
+      setSubmitStatus({
+        success: false,
         message: errorMessage
       });
     } finally {
@@ -102,10 +102,10 @@ const Contact = () => {
   return (
     <div className="contact-page">
       {/* Use Particles Component */}
-      <Particles 
-        count={20} 
-        color="#6366f1" 
-        size={4} 
+      <Particles
+        count={20}
+        color="#6366f1"
+        size={4}
         duration={6}
         className="contact-particles"
       />
@@ -140,23 +140,19 @@ const Contact = () => {
               <span className="contact-stat-number">99%</span>
               <span className="contact-stat-label">Satisfaction</span>
             </div>
-            <div className="contact-stat">
-              <span className="contact-stat-number">1k+</span>
-              <span className="contact-stat-label">Players Helped</span>
-            </div>
           </div>
         </div>
 
         <div className="contact-content">
           {/* Left Side - Contact Info Card */}
-       
+
 
           {/* Right Side - Contact Form */}
           <div className="contact-form-section">
             <div className="contact-form-container-wrapper">
               <div className="contact-form-container">
                 <div className="contact-form-header">
-                  <h2>SEND TRANSMISSION</h2>
+                  <h2>MESSAGE US</h2>
                   <p>Initiate contact protocol. We'll see your message ASAP.</p>
                 </div>
 
@@ -228,8 +224,8 @@ const Contact = () => {
                     </div>
                   </div>
 
-                  <button 
-                    type="submit" 
+                  <button
+                    type="submit"
                     className={`contact-submit-btn ${isSubmitting ? 'contact-submitting' : ''}`}
                     disabled={isSubmitting}
                   >
@@ -260,7 +256,7 @@ const Contact = () => {
 
         {/* Quick Actions Section */}
         <div className="contact-quick-actions-wrapper">
-        
+
         </div>
       </div>
     </div>

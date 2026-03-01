@@ -11,10 +11,10 @@ const Games = () => {
 
   useEffect(() => {
     setIsLoaded(true);
-    
+
     // Add games-specific background class to body
     document.body.classList.add('games-page-active');
-    
+
     // Cleanup on component unmount
     return () => {
       document.body.classList.remove('games-page-active');
@@ -26,11 +26,10 @@ const Games = () => {
       id: 'deceptionist',
       title: "Deceptionist",
       subtitle: "A Game of Lies and Strategy",
-      description: "Uncover the truth while hiding your own secrets in this social deduction masterpiece. Outwit your opponents through cunning strategies and clever bluffs.",
+      description: "A strategic board game where every decision matters. Find the safest path and be the first to reach your destination, Outthink your opponents and navigate the board with careful planning in this intense battle of wits.",
       players: "2-4",
       duration: "45-90min",
       age: "14+",
-      rating: "4.8",
       tags: [],
       featured: true,
       color: "#7877c6",
@@ -45,12 +44,12 @@ const Games = () => {
 
   return (
     <div className={`games-page ${isLoaded ? 'loaded' : ''}`}>
-               
-        {/* Use Particles Component */}
-      <Particles 
-        count={30} 
-        color="#8b5cf6" 
-        size={4} 
+
+      {/* Use Particles Component */}
+      <Particles
+        count={30}
+        color="#8b5cf6"
+        size={4}
         duration={8}
         className="games-particles"
       />
@@ -59,7 +58,7 @@ const Games = () => {
         <div className="games-bg-pattern"></div>
         <div className="games-bg-overlay"></div>
       </div>
-      
+
       {/* Enhanced Header */}
       <header className="games-header">
         <div className="header-background">
@@ -78,12 +77,12 @@ const Games = () => {
           </div>
           <p className="brand-subtitle">Where Strategy Meets Deception</p>
           <p className="brand-description">
-            Immerse yourself in our collection of mind-bending board games designed 
+            Immerse yourself in our collection of mind-bending board games designed
             for strategic thinkers and master deceivers.
           </p>
         </div>
         <div className="scroll-indicator">
-         
+
         </div>
       </header>
 
@@ -94,14 +93,13 @@ const Games = () => {
             <h2 className="section-title">Featured Game</h2>
             <p className="section-subtitle">Experience the ultimate deception challenge</p>
           </div>
-          
+
           <div className="games-grid">
             {games.map((game, index) => (
-              <div 
-                key={game.id} 
-                className={`game-card ${game.featured ? 'featured' : ''} ${
-                  hoveredCard === game.id ? 'hovered' : ''
-                }`}
+              <div
+                key={game.id}
+                className={`game-card ${game.featured ? 'featured' : ''} ${hoveredCard === game.id ? 'hovered' : ''
+                  }`}
                 style={{ '--card-color': game.color, '--card-gradient': game.gradient }}
                 onMouseEnter={() => setHoveredCard(game.id)}
                 onMouseLeave={() => setHoveredCard(null)}
@@ -110,7 +108,7 @@ const Games = () => {
                 {/* Card Background Effects */}
                 <div className="card-glow"></div>
                 <div className="card-background"></div>
-                
+
                 {/* Card Header */}
                 <div className="card-header">
                   <div className="game-badges">
@@ -120,22 +118,20 @@ const Games = () => {
                         Featured Game
                       </span>
                     )}
-                    <span className="rating-badge">
-                      ★ {game.rating}
-                    </span>
+
                   </div>
-                  
+
                   {/* Logo Container */}
                   <div className="card-logo-container">
-                    <img 
-                      src={game.logo} 
+                    <img
+                      src={game.logo}
                       alt={`${game.title} Logo`}
                       className="game-logo"
                     />
                   </div>
-                  
+
                   <div className="card-corner">
-                    
+
                   </div>
                 </div>
 
@@ -145,9 +141,9 @@ const Games = () => {
                     <h3 className="game-name">{game.title}</h3>
                     <p className="game-type">{game.subtitle}</p>
                   </div>
-                  
+
                   <p className="game-desc">{game.description}</p>
-                  
+
                   <div className="game-stats">
                     <div className="stat-group">
                       <div className="stat-item">

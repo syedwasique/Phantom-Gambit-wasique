@@ -5,14 +5,14 @@ import './About.css';
 const About = () => {
   useEffect(() => {
     const statNumbers = document.querySelectorAll('.stat-number');
-    
+
     const animateNumbers = () => {
       statNumbers.forEach(stat => {
         const target = parseInt(stat.getAttribute('data-count'));
         const duration = 2000;
         const start = 0;
         const increment = target / (duration / 16);
-        
+
         let current = start;
         const timer = setInterval(() => {
           current += increment;
@@ -24,7 +24,7 @@ const About = () => {
         }, 16);
       });
     };
-    
+
     // Trigger when section comes into view
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -34,12 +34,12 @@ const About = () => {
         }
       });
     }, { threshold: 0.5 });
-    
+
     const statsContainer = document.querySelector('.stats-container');
     if (statsContainer) {
       observer.observe(statsContainer);
     }
-    
+
     return () => observer.disconnect();
   }, []);
 
@@ -56,12 +56,12 @@ const About = () => {
       {/* Animated Background Elements */}
       <div className="about-bg-pattern"></div>
       <div className="about-bg-gradient"></div>
-      
+
       {/* Floating Game Elements */}
       <div className="floating-icon floating-dice">🎲</div>
       <div className="floating-icon floating-card">🃏</div>
       <div className="floating-icon floating-chess">♟️</div>
-      
+
       <div className="about-content">
         {/* Section Header */}
         <div className="section-header">
@@ -69,25 +69,25 @@ const About = () => {
           <div className="header-underline"></div>
           <p className="header-subtitle">Where Every Game Tells a Story</p>
         </div>
-        
+
         {/* Main About Content */}
         <div className="about-grid">
           <div className="about-text animate-slide-in-left">
             <h3>The Beginning of Something Great</h3>
             <p>
-              Phantom Gambit was born from a simple yet powerful idea: to create 
-              board games that challenge the mind and spark meaningful connections. 
-              We're a passionate team of game designers, storytellers, and 
+              Phantom Gambit was born from a simple yet powerful idea: to create
+              board games that challenge the mind and spark meaningful connections.
+              We're a passionate team of game designers, storytellers, and
               strategists dedicated to crafting unforgettable gaming experiences.
             </p>
             <p>
-              Our journey begins with <strong>Deceptionist</strong>, our flagship 
-              social deduction game that's designed to bring people together through 
-              clever gameplay and immersive storytelling. Each game is more than 
-              just a board - it's an experience packaged in our signature 
+              Our journey begins with <strong>Deceptionist</strong>, our flagship
+              social deduction game that's designed to bring people together through
+              clever gameplay and immersive storytelling. Each game is more than
+              just a board - it's an experience packaged in our signature
               Deceptionist boxes.
             </p>
-            
+
             <div className="core-values">
               <h4>Our Core Values</h4>
               <div className="values-grid">
@@ -110,7 +110,7 @@ const About = () => {
               </div>
             </div>
           </div>
-          
+
           {/* Stats Cards - Square layout with 2 top, 1 bottom */}
           <div className="stats-container animate-slide-in-right">
             <h3>Our Journey Begins</h3>
@@ -124,7 +124,7 @@ const About = () => {
                 </div>
                 <div className="stat-card">
                   <div className="stat-icon"><FaBoxOpen /></div>
-                  <div className="stat-number" data-count="250">50</div>
+                  <div className="stat-number" data-count="300">50</div>
                   <div className="stat-label">Deceptionist Boxes</div>
                   <div className="stat-subtext">Initial Production Run</div>
                 </div>
@@ -140,7 +140,7 @@ const About = () => {
             </div>
           </div>
         </div>
-        
+
         {/* Current Focus Section */}
         <div className="focus-section animate-fade-in">
           <h3>What We're Building Right Now</h3>
@@ -171,14 +171,14 @@ const About = () => {
             </div>
           </div>
         </div>
-        
+
         {/* Call to Action */}
         <div className="cta-section animate-fade-in">
           <div className="cta-content">
             <h3>Join Our Founding Community</h3>
             <p>
-              Be among the first to experience Deceptionist! Follow our journey, 
-              get exclusive updates, and be notified when our Deceptionist boxes 
+              Be among the first to experience Deceptionist! Follow our journey,
+              get exclusive updates, and be notified when our Deceptionist boxes
               become available for pre-order.
             </p>
             <div className="cta-buttons">
@@ -197,7 +197,7 @@ const About = () => {
         {/* Mission Statement */}
         <div className="mission-statement animate-fade-in">
           <div className="mission-quote">
-            "Great games aren't just played - they're experiences that bring people 
+            "Great games aren't just played - they're experiences that bring people
             together. Each Deceptionist box is crafted to create those memorable moments."
           </div>
           <div className="mission-author">- The Phantom Gambit Team</div>

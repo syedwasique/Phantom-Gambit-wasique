@@ -17,7 +17,7 @@ function Home() {
   const handleExploreClick = () => {
     navigate('/games');
   };
-  
+
   const handleSignIn = () => {
     navigate('/signin');
   };
@@ -41,7 +41,7 @@ function Home() {
 
   return (
     <div className="home-container">
-      <Ballpit 
+      <Ballpit
         ref={ballpitRef}
         shape="icosahedron"
         colors={['#14053dff', '#8b0959ff', '#40037dff']}
@@ -59,7 +59,7 @@ function Home() {
 
       {/* Enhanced Gradient Background */}
       <div className="gradient-bg"></div>
-      
+
       {/* Improved Floating Particles */}
       <div className="particles">
         {[...Array(50)].map((_, i) => (
@@ -74,7 +74,7 @@ function Home() {
           }}></div>
         ))}
       </div>
-      
+
       {/* Glowing Orbs with Enhanced Effects */}
       <div className="orb orb-1"></div>
       <div className="orb orb-2"></div>
@@ -92,7 +92,7 @@ function Home() {
         {/* Enhanced CTA Button */}
         <div className="cta-container">
           <button className="cta-button" onClick={handleExploreClick}>
-            <span className="cta-text">EXPLORE TOURNAMENTS</span>
+            <span className="cta-text">EXPLORE GAME</span>
             <span className="cta-icon"><FaChevronRight /></span>
             <div className="cta-hover"></div>
             <div className="cta-pulse"></div>
@@ -107,7 +107,7 @@ function Home() {
           </button>
         </div>
 
-      
+
       </div>
     </div>
   );
