@@ -1,10 +1,10 @@
 // Add these imports to your auth.js
 import { getDoc, doc, setDoc, updateDoc } from "firebase/firestore";
 import { auth, db } from "./Firebase"; // Make sure db is exported from your Firebase config
-import { 
-  createUserWithEmailAndPassword, 
-  GoogleAuthProvider, 
-  signInWithEmailAndPassword, 
+import {
+  createUserWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithEmailAndPassword,
   signInWithPopup,
   signInWithRedirect,
   signOut,
@@ -38,12 +38,12 @@ const getAuthErrorMessage = (errorCode) => {
 export const doCreateUserWithEmailAndPassword = async (email, password, displayName, role = 'user') => {
   try {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-    
+
     // Update user profile with display name
     if (displayName) {
       await updateProfile(userCredential.user, { displayName });
     }
-    
+
     // Create user document with role
     await setDoc(doc(db, 'users', userCredential.user.uid), {
       email,
@@ -51,9 +51,9 @@ export const doCreateUserWithEmailAndPassword = async (email, password, displayN
       role: role, // Now accepts role parameter
       createdAt: new Date()
     });
-    
+
     await reload(userCredential.user);
-    
+
     return {
       user: userCredential.user,
       role: role
@@ -67,20 +67,20 @@ export const doSignInWithEmailAndPassword = async (email, password, requestedRol
   try {
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
     const userDoc = await getDoc(doc(db, 'users', userCredential.user.uid));
-    
+
     if (!userDoc.exists()) {
       await signOut(auth);
       throw new Error('auth/user-not-found');
     }
-    
+
     const userRole = userDoc.data().role || 'user';
-    
+
     // Verify the requested role matches the user's actual role
     if (requestedRole && requestedRole !== userRole) {
       await signOut(auth);
       throw new Error('auth/unauthorized-role');
     }
-    
+
     return {
       user: userCredential.user,
       role: userRole
@@ -99,17 +99,8 @@ export const doSignInWithGoogle = async () => {
       login_hint: ''
     });
 
-    if (window.innerWidth < 768) {
-      // Mobile flow with redirect
-      await signInWithRedirect(auth, provider);
-      
-      // Note: You'll need to handle the redirect result in your auth state observer
-      // This typically happens in your main App component or auth context
-    } else {
-      // Desktop flow with popup
-      const result = await signInWithPopup(auth, provider);
-      return result;
-    }
+    const result = await signInWithPopup(auth, provider);
+    return result;
   } catch (error) {
     console.error('Google sign-in error:', error);
     throw new Error(getAuthErrorMessage(error.code));
@@ -129,15 +120,6 @@ export const doSignOut = async () => {
   }
 };
 
-// Utility function to handle redirect results (call this after page load)
-export const handleAuthRedirect = async () => {
-  try {
-    // You would typically implement this using getRedirectResult(auth)
-    // This should be called in your main App component or auth provider
-  } catch (error) {
-    console.error('Redirect result error:', error);
-    throw new Error(getAuthErrorMessage(error.code));
-  }
-};
+
 
 export { googleProvider };

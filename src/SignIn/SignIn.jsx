@@ -13,8 +13,14 @@ const SignIn = () => {
 
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const { setCurrentUser, setUserRole } = useAuth();
+  const { currentUser, setCurrentUser, setUserRole } = useAuth();
   const navigate = useNavigate();
+
+  React.useEffect(() => {
+    if (currentUser) {
+      navigate('/');
+    }
+  }, [currentUser, navigate]);
 
   const handleChange = (e) => {
     setFormData({
@@ -27,13 +33,13 @@ const SignIn = () => {
     e.preventDefault();
     setError('');
     setLoading(true);
-    
+
     try {
       const { user, role } = await doSignInWithEmailAndPassword(
-        formData.email, 
+        formData.email,
         formData.password
       );
-      
+
       setCurrentUser(user);
       setUserRole(role);
       navigate('/');
@@ -50,7 +56,7 @@ const SignIn = () => {
   const handleGoogleSignIn = async () => {
     setError('');
     setLoading(true);
-    
+
     try {
       await doSignInWithGoogle();
       navigate('/');
@@ -66,7 +72,7 @@ const SignIn = () => {
 
   return (
     <div className="signin-page">
-  
+
 
       {/* Background elements */}
       <div className="gradient-bg"></div>
@@ -83,7 +89,7 @@ const SignIn = () => {
           }}></div>
         ))}
       </div>
-      
+
       {/* Main Content Area */}
       <main className="signin-content">
         <div className="signin-container">
@@ -130,8 +136,8 @@ const SignIn = () => {
               </div>
             </div>
 
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               className="signin-btn"
               disabled={loading}
             >
@@ -143,16 +149,16 @@ const SignIn = () => {
                 <span>OR CONTINUE WITH</span>
               </div>
               <div className="social-icons">
-                <button 
-                  type="button" 
+                <button
+                  type="button"
                   className="social-btn google"
                   onClick={handleGoogleSignIn}
                   disabled={loading}
                 >
                   <FaGoogle />
                 </button>
-               
-                
+
+
               </div>
             </div>
 
@@ -163,7 +169,7 @@ const SignIn = () => {
         </div>
       </main>
 
-   
+
     </div>
   );
 };

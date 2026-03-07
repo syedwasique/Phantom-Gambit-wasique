@@ -18,8 +18,14 @@ const SignUp = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState('');
   const modalRef = useRef();
-  const { setCurrentUser, setUserRole } = useAuth();
+  const { currentUser, setCurrentUser, setUserRole } = useAuth();
   const navigate = useNavigate();
+
+  React.useEffect(() => {
+    if (currentUser) {
+      navigate('/');
+    }
+  }, [currentUser, navigate]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -29,21 +35,21 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
-    
+
     if (formData.password !== formData.confirmPassword) {
       setError("Passwords don't match!");
       return;
     }
 
     setIsSubmitting(true);
-    
+
     try {
       const { user, role } = await doCreateUserWithEmailAndPassword(
         formData.email,
         formData.password,
         formData.username
       );
-      
+
       setCurrentUser(user);
       setUserRole(role);
       navigate('/');
@@ -60,7 +66,7 @@ const SignUp = () => {
   const handleGoogleSignIn = async () => {
     setError('');
     setIsSubmitting(true);
-    
+
     try {
       await doSignInWithGoogle();
       navigate('/');
@@ -110,16 +116,16 @@ const SignUp = () => {
           }}></div>
         ))}
       </div>
-      
+
       {/* Main Content Area */}
       <main className="signup-content">
-        <motion.div 
+        <motion.div
           ref={modalRef}
           className="signup-container"
           initial={{ scale: 0.8, opacity: 0, y: 50 }}
           animate={{ scale: 1, opacity: 1, y: 0 }}
           exit={{ scale: 0.8, opacity: 0, y: 50 }}
-          transition={{ 
+          transition={{
             type: 'spring',
             damping: 20,
             stiffness: 300
@@ -138,7 +144,7 @@ const SignUp = () => {
 
           {/* Error Message */}
           {error && (
-            <motion.div 
+            <motion.div
               className="auth-error-message"
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -193,8 +199,8 @@ const SignUp = () => {
                   required
                   minLength="6"
                 />
-                <button 
-                  type="button" 
+                <button
+                  type="button"
                   className="password-toggle"
                   onClick={() => setShowPassword(!showPassword)}
                 >
@@ -216,8 +222,8 @@ const SignUp = () => {
                   required
                   minLength="6"
                 />
-                <button 
-                  type="button" 
+                <button
+                  type="button"
                   className="password-toggle"
                   onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                 >
@@ -227,8 +233,8 @@ const SignUp = () => {
             </div>
 
             {/* Submit Button */}
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               className="signup-btn"
               onClick={createRipple}
               disabled={isSubmitting}
@@ -249,16 +255,16 @@ const SignUp = () => {
                 <span>OR CONTINUE WITH</span>
               </div>
               <div className="social-icons">
-                <button 
-                  type="button" 
+                <button
+                  type="button"
                   className="social-btn google"
                   onClick={handleGoogleSignIn}
                   disabled={isSubmitting}
                 >
                   <FaGoogle />
                 </button>
-              
-               
+
+
               </div>
             </div>
 

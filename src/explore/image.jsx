@@ -45,6 +45,7 @@ const Image = () => {
                 src={boardImage}
                 alt="Deceptionist Board Game"
                 className="board-image"
+                loading="lazy"
                 onLoad={() => setIsImageLoaded(true)}
               />
               <div className="image-shine"></div>
