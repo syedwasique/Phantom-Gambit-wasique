@@ -1,18 +1,22 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Home.css';
 import { FaChevronRight } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from "../Context/authContext";
 import { doSignOut } from "../Firebase/auth";
-import Ballpit from '../Background/Background';
-// REMOVE Navbar import from here
+// Removed Ballpit from here to prevent duplicate render
 
 function Home() {
   const { currentUser, userRole } = useAuth();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const navigate = useNavigate();
-  const ballpitRef = useRef();
-  const [isBallpitReady, setIsBallpitReady] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const handleExploreClick = () => {
     navigate('/games');
@@ -41,28 +45,14 @@ function Home() {
 
   return (
     <div className="home-container">
-      <Ballpit
-        ref={ballpitRef}
-        shape="icosahedron"
-        colors={['#14053dff', '#8b0959ff', '#40037dff']}
-        count={120}
-        followCursor={false}
-        className="ballpit-background"
-        minSize={0.2}
-        maxSize={0.5}
-        size0={0.5}
-        onLoad={() => {
-          setIsBallpitReady(true);
-          document.body.classList.add('ballpit-ready');
-        }}
-      />
+      {/* Background is now fully handled in Layout.jsx to prevent dual-rendering */}
 
       {/* Enhanced Gradient Background */}
       <div className="gradient-bg"></div>
 
       {/* Improved Floating Particles */}
       <div className="particles">
-        {[...Array(50)].map((_, i) => (
+        {[...Array(isMobile ? 15 : 50)].map((_, i) => (
           <div key={i} className="particle" style={{
             '--size': `${Math.random() * 6 + 2}px`,
             '--delay': `${Math.random() * 2}s`,
