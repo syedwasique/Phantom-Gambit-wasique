@@ -1,16 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import './Home.css';
 import { FaChevronRight } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from "../Context/authContext";
 import { doSignOut } from "../Firebase/auth";
-// Removed Ballpit from here to prevent duplicate render
+import Ballpit from '../Background/Background';
 
 function Home() {
   const { currentUser, userRole } = useAuth();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const navigate = useNavigate();
+  const ballpitRef = useRef();
+  const [isBallpitReady, setIsBallpitReady] = useState(false);
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
@@ -45,7 +47,23 @@ function Home() {
 
   return (
     <div className="home-container">
-      {/* Background is now fully handled in Layout.jsx to prevent dual-rendering */}
+      <Ballpit
+        ref={ballpitRef}
+        shape="icosahedron"
+        colors={['#14053dff', '#8b0959ff', '#40037dff']}
+        count={isMobile ? 40 : 120}
+        minPixelRatio={1}
+        maxPixelRatio={isMobile ? 1.5 : 2}
+        followCursor={false}
+        className="ballpit-background"
+        minSize={0.2}
+        maxSize={isMobile ? 0.35 : 0.5}
+        size0={isMobile ? 0.35 : 0.5}
+        onLoad={() => {
+          setIsBallpitReady(true);
+          document.body.classList.add('ballpit-ready');
+        }}
+      />
 
       {/* Enhanced Gradient Background */}
       <div className="gradient-bg"></div>
